@@ -115,11 +115,10 @@ install(
 #install(TARGETS ${PROJECT_NAME}_node DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
-
   find_package(ament_lint_auto REQUIRED)
+  set(ament_cmake_flake8_CONFIG_FILE "${CMAKE_SOURCE_DIR}/.flake8")
   list(APPEND AMENT_LINT_AUTO_EXCLUDE ament_cmake_copyright)
-  ament_lint_auto_find_test_dependencies()
-  #  add_subdirectory(test)
+  list(APPEND AMENT_LINT_AUTO_EXCLUDE ament_cmake_uncrustify)
 endif()
 
 ament_package()
